@@ -14,6 +14,11 @@ type Character = {
     name: string;
     house: string;
     image: string;
+    wand: {
+      wood: string;
+      core: string;
+      length: number
+    }
 };
 
 // Tipo de los datos que se pasan al componente
