@@ -8,6 +8,11 @@ type Character = {
     house: string;
     image: string;
     patronus: string;
+    wand: {
+      wood: string;
+      core: string;
+      length: number;
+    }
 };
 
 type Data = {
