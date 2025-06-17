@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb"
 import { DNI } from '../types.ts'
 
-const MONGO_URL = "MONGO_URL = mongodb+srv://agarciar37:<db_password>@cluster0.nv27ans.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const MONGO_URL = "mongodb+srv://agarciar37:<db_password>@cluster0.nv27ans.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const url = MONGO_URL;
 
 if (!url) {
