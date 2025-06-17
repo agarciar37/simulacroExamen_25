@@ -29,7 +29,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "agarciar37-simulacroex-95"
+          project: "agarciar37-simulacroex-54"
           entrypoint: "main.ts"
           root: "."
           
