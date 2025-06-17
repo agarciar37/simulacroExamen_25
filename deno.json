@@ -27,7 +27,6 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
     "axios": "npm:axios@^1.10.0",
     "denoland": "npm:denoland@^1.0.0",
-    "mongo": "npm:mongo@^0.1.0",
     "mongodb": "npm:mongodb@^6.17.0",
     "preact": "https://esm.sh/preact@10.22.0",
     "preact/": "https://esm.sh/preact@10.22.0/"
