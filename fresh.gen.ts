@@ -3,6 +3,7 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $_platform_middleware from "./routes/(platform)/_middleware.ts";
+import * as $_platform_favorite from "./routes/(platform)/favorite.ts";
 import * as $_platform_greet from "./routes/(platform)/greet.tsx";
 import * as $_platform_logout from "./routes/(platform)/logout.ts";
 import * as $_404 from "./routes/_404.tsx";
@@ -17,6 +18,7 @@ import type { Manifest } from "$fresh/server.ts";
 const manifest = {
   routes: {
     "./routes/(platform)/_middleware.ts": $_platform_middleware,
+    "./routes/(platform)/favorite.ts": $_platform_favorite,
     "./routes/(platform)/greet.tsx": $_platform_greet,
     "./routes/(platform)/logout.ts": $_platform_logout,
     "./routes/_404.tsx": $_404,

@@ -18,17 +18,28 @@ const CharactersContainer: FunctionComponent<Props> = (props) => {
     character.name.toLowerCase().includes(searchTerm.value.toLowerCase())
   );
 
+  const addFavorite = async (character: Character) => {
+    await fetch("/favorite", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(character),
+    });
+  };
+
   return (
     <div class="CharactersContainer">
       {filteredCharacters.map((character) => (
-        <a
-          href={`/character/${character.id}`}
-          className="CharacterCard"
-          key={character.id}
-        >
-          <h2>{character.name}</h2>
-          <img src={character.image} alt={character.name} />
-        </a>
+        <div key={character.id}>
+          <div class="CharacterCard">
+            <a href={`/character/${character.id}`}>
+              <h2>{character.name}</h2>
+              <img src={character.image} alt={character.name} />
+            </a>
+            <button onClick={() => addFavorite(character)}>
+              Añadir a favoritos
+            </button>
+          </div>
+        </div>
       ))}
     </div>
   );
