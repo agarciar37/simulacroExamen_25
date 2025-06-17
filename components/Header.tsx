@@ -1,11 +1,11 @@
 import { FunctionComponent } from "preact/src/index.d.ts";
 
-const Footer: FunctionComponent = () => {
+const Header: FunctionComponent = () => {
     return (
-        <div class="Footer">
+        <div class="Header">
             Copyright Nebrija 2025
         </div>
     )
 }
 
-export default Footer;
+export default Header;

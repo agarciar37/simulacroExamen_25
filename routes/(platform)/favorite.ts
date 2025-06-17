@@ -1,6 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
+import collection from "../../db/DNI.ts";
 import { Character } from "../../types.ts";
-import { getDniCollection } from "../../db/DNI.ts";
 
 interface State {
   dni: string;
@@ -9,7 +9,6 @@ interface State {
 export const handler: Handlers<Character[] | null, State> = {
   async GET(_req, ctx) {
     try {
-      const collection = await getDniCollection();
       const user = await collection.findOne({ DNI: ctx.state.dni });
       if (!user) return new Response("not found", { status: 404 });
       return new Response(JSON.stringify(user.characters), {
@@ -23,7 +22,6 @@ export const handler: Handlers<Character[] | null, State> = {
   async POST(req, ctx) {
     try {
       const character: Character = await req.json();
-      const collection = await getDniCollection();
       await collection.updateOne(
         { DNI: ctx.state.dni },
         { $push: { characters: character } },
@@ -37,7 +35,6 @@ export const handler: Handlers<Character[] | null, State> = {
   async DELETE(req, ctx) {
     try {
       const { id } = await req.json();
-      const collection = await getDniCollection();
       await collection.updateOne(
         { DNI: ctx.state.dni },
         { $pull: { characters: { id } } },

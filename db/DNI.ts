@@ -1,21 +1,17 @@
-import { MongoClient } from "mongodb";
-import { DNI } from "../types.ts";
+import { MongoClient } from "mongodb"
+import { DNI } from '../types.ts'
 
-const MONGO_URL = Deno.env.get("MONGO_URL");
+const MONGO_URL = "MONGO_URL = mongodb+srv://agarciar37:<db_password>@cluster0.nv27ans.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const url = MONGO_URL;
 
-if (!MONGO_URL) {
-    console.error("MONGO_URL not found");
-    throw Error("Enter a valid MONGO_URL");
+if (!url) {
+  throw new Error('MONGO_URL environment variable is not set');
 }
 
-async function connectClient(): Promise<MongoClient> {
-    const client = new MongoClient(MONGO_URL as string);
-    await client.connect();
-    console.info("Connected successfully to MongoDB");
-    return client;
-}
+const client = new MongoClient(url);
+await client.connect();
 
-export async function getDniCollection() {
-    const client = await connectClient();
-    return client.db("DNIs").collection<DNI>("DNI");
-}
+const db = client.db('DNIs');
+const collection = db.collection<DNI>('DNI');
+
+export default collection;

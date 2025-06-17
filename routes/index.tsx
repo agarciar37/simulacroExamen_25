@@ -1,6 +1,6 @@
 import { FreshContext, Handlers } from "$fresh/server.ts";
 import LoginForm from "../components/LoginForm.tsx";
-import { getDniCollection } from "../db/DNI.ts";
+import collection from "../db/DNI.ts";
 
 export const handler: Handlers = {
   GET: async (req: Request, ctx: FreshContext) => {
@@ -10,7 +10,6 @@ export const handler: Handlers = {
     if (!dni) return ctx.render();
 
 
-    const collection = await getDniCollection();
     // Comprobar si el DNI ya existe en MongoDB
     const exists = await collection.findOne({ DNI: dni });
     if (!exists) {
